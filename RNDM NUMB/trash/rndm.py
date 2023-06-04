@@ -1,6 +1,15 @@
-def f(x, y):
-    if x > y or x == 15: return 0
-    if x == y: return 1
-    else: return f(x+1, y) + f(x+2, y)
 
-print(f(3, 9)*f(9, 20))    
+def f(s, c, m):
+    if s >= 68: return c%2 == m%2
+    if c == m: return 0
+
+    h = [f(s+1, c+1, m), f(s+4, c+1, m), f(s*5, c+1, m)]
+    return any(h) if (c+1)% 2 == m% 2 else any(h)
+
+
+for s in range(1, 67):
+    for m in range(1, 5):
+        if f(s, 0, m) == 1:
+            if m == 2:
+                print(s, m)
+            break    
