@@ -1,15 +1,14 @@
+a = [int(x) for x in open('17 (12).txt')]
+b = [int(x) for x in open('17 (12).txt') if int(x) % 2 == 1]
+avg = sum(b)//len(b)
 
-def f(s, c, m):
-    if s >= 68: return c%2 == m%2
-    if c == m: return 0
+k = m = 0
 
-    h = [f(s+1, c+1, m), f(s+4, c+1, m), f(s*5, c+1, m)]
-    return any(h) if (c+1)% 2 == m% 2 else any(h)
+for i in range(len(a) - 1):
+    if a[i] % 5 == 0 or a[i+1] % 5 == 0:
+        if a[i] < avg or a[i+1] < avg:
+            k += 1
+            m = max(m, a[i] + a[i+1])
 
 
-for s in range(1, 67):
-    for m in range(1, 5):
-        if f(s, 0, m) == 1:
-            if m == 2:
-                print(s, m)
-            break    
+print(k, m)            
