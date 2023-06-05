@@ -1,11 +1,19 @@
-f = open('24 (9).txt').readline()
-k = m = 3
+def is_prime(n):
+    if n <= 1:
+        return False
+    for j in range (2, int(n**0.5) + 1):
+        if n % j == 0:
+            return False
+    return True    
 
-for i in range(len(f)-3):
-    if (f[i] + f[i+1] + f[i+2] +f[i+3]) != 'XZZY':
+
+k = 0
+
+for x in range(2422000, 2422081):
+    if is_prime(x) == 1:
         k += 1
-        m = max(k, m)
-    else:
-        k = 3
+        print(k, x)
 
-print(m)                
+
+
+
