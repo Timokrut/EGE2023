@@ -1,5 +1,18 @@
-from fnmatch import fnmatch
+def descending_order(num):
+    a=[]
+    s = str(num)
+    for i in s:
+        a.append(i)
 
-for x in range(0, 10**10, 2023):
-    if fnmatch(str(x), '1?2139*4'):
-        print(x, x//2023)
+    a.sort(reverse=True)
+
+    res = ''
+
+    for i in a:
+        res += str(i)
+
+    
+    return int(res)
+
+
+print(descending_order(15))    
