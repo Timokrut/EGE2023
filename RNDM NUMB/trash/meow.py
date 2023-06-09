@@ -1,18 +1,9 @@
-def descending_order(num):
-    a=[]
-    s = str(num)
-    for i in s:
-        a.append(i)
-
-    a.sort(reverse=True)
-
-    res = ''
-
-    for i in a:
-        res += str(i)
-
-    
-    return int(res)
-
-
-print(descending_order(15))    
+def second_symbol(s, symbol):
+    k = 0
+    for i in range(len(s)):
+        if s[i] == symbol:
+            k += 1
+            if k == 2:
+                return i
+    return -1
+print(second_symbol('qq', 'q'))            
