@@ -1,15 +1,18 @@
-def f(a, b, c, m):
-    if a + b <= 40:
-        return c % 2 == m % 2
-    if c == m:
-        return 0
-    
-    h = [f(a-1, b, c+1, m), f(a, b-1, c+1, m), f((a+1)//2, b, c+1, m), f(a, (b+1)//2, c+1, m)]
-    return any(h) if (c+1)%2 == m%2 else any(h)
+f = open('./27A_2720.txt')
+n = int(f.readline())
+a = [int(x) for x in f.readlines()]
+forall = []
+ans = []
+k = 0
+has7 = 0
 
-for b in range(20, 200):
-    for m in range(1, 5):
-        if f(20, b, 0, m):
-            if m == 2:
-                print(b, m)
-            break    
+for i in a:
+    if i % 7 == 0:
+        forall.append(i)
+        k += len(forall)
+        has7 += 1
+    else:
+        k += has7
+        forall.append(i)    
+
+print(k)        
